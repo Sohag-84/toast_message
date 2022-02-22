@@ -4,6 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 void main() {
   runApp(const MyApp());
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -11,10 +12,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:ToastPage(),
+      home: ToastPage(),
     );
   }
 }
+
 class ToastPage extends StatefulWidget {
   const ToastPage({Key? key}) : super(key: key);
 
@@ -29,7 +31,7 @@ class _ToastPageState extends State<ToastPage> {
       body: Center(
         child: RaisedButton(
           child: const Text("Click Here"),
-          onPressed: (){
+          onPressed: () {
             showToast();
           },
         ),
@@ -38,6 +40,12 @@ class _ToastPageState extends State<ToastPage> {
   }
 
   void showToast() {
-
+    Fluttertoast.showToast(
+        msg: "This is a toast message",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        backgroundColor: Colors.teal,
+        textColor: Colors.orange,
+        fontSize: 25);
   }
 }
